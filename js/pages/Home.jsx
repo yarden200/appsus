@@ -6,11 +6,9 @@ export function Home() {
       <h1>Welcome to Appsus</h1>
       <hr />
       <div className="nav">
-        <Link to={"/keep"}>Keep</Link>
-        <Link to={"/mail"}>Mail</Link>
+        <Link to="/keep">Keep</Link>
+        <Link to="/mail">Mail</Link>
       </div>
-
-
     </section>
   )
 }
