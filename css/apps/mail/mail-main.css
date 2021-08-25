@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+.email-index {
+    /* margin: 0; */
+    background-color: rgba(216, 215, 215, 0.973);
+}
+
+.email-list {
+    background-color: rgb(83, 81, 81);
+}
+
+.email-preview {
+    display: flex;
+    justify-content: space-around
+}
