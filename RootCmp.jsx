@@ -3,7 +3,7 @@ const { Route, Switch } = ReactRouterDOM
 
 export function App() {
     return (
-      <h2>hi</h2>
+      <h2>GUY</h2>
       // <Router>
       //   <header>
       //     <AppHeader/>
