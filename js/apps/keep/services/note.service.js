@@ -16,10 +16,22 @@ var gNotes;
         id: "n101",
         type: "note-txt",
         isPinned: true,
-        info: { txt: "Fullstack Me Baby!" }
+        info: { txt: "go to gym" }
     },
     {
         id: "n102",
+        type: "note-txt",
+        isPinned: true,
+        info: { txt: "pay the bills" }
+    },
+    {
+        id: "n103",
+        type: "note-txt",
+        isPinned: true,
+        info: { txt: "feed my dog" }
+    },
+    {
+        id: "n104",
         type: "note-img",
         info: {
             url: "http://some-img/me",
@@ -28,7 +40,7 @@ var gNotes;
         style: { backgroundColor: "#00d" }
     },
     {
-        id: "n103",
+        id: "n105",
         type: "note-todos",
         info: {
             label: "Get my stuff together",

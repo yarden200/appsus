@@ -1,5 +1,6 @@
 import { noteService } from "../services/note.service.js";
-import { NoteList } from "../cmps/noteList.jsx";
+import { NoteList } from "../cmps/NoteList.jsx";
+import { NoteEdit } from "../cmps/NoteEdit.jsx";
 
 export class Keep extends React.Component {
   state = {
@@ -19,9 +20,13 @@ export class Keep extends React.Component {
   render() {
     const { notes } = this.state;
     return (
-    <section className="keep-app">
-      <NoteList notes={notes} />
-    
-    </section>)
+      <section className="note-edit">
+        <NoteEdit notes={notes} />
+
+        <section className="note-list">
+          <NoteList notes={notes} />
+        </section>
+      </section>
+    );
   }
 }

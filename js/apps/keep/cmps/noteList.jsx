@@ -1,4 +1,4 @@
-import { NotePreview } from "./notePreview.jsx"
+import { NotePreview } from "./NotePreview.jsx"
 
 export function NoteList(props) {
   return (

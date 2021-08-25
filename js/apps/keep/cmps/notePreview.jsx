@@ -1,8 +1,8 @@
 export function NotePreview(props){
     return (
-        <div className="car-preview">
-            <h2>id - {props.note.id}</h2>
-            <h2>txt - {props.note.info.txt}</h2>
+        <div className="note-preview">
+           
+            <h4>{props.note.info.txt}</h4>
         </div>
 
     )
