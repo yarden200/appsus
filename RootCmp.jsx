@@ -2,7 +2,7 @@ const Router = ReactRouterDOM.HashRouter
 const { Route, Switch } = ReactRouterDOM
 
 import { Home } from './js/pages/Home.jsx'
-import { Keep } from './js/apps/keep/pages/Note-Index.jsx'
+import { Keep } from './js/apps/keep/pages/NoteApp.jsx'
 import { Mail } from './js/apps/mail/pages/Mail-Index.jsx'
 
 
