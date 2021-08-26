@@ -19,14 +19,15 @@ export class Keep extends React.Component {
 
   render() {
     const { notes } = this.state;
+    if (!notes) return <div>Loading...</div>
     return (
-      <section className="note-edit">
-        <NoteEdit notes={notes} />
+      // <section className="note-edit">
+      //   <NoteEdit notes={notes} />
 
         <section className="note-list">
-          <NoteList notes={notes} />
+          <NoteList notes={notes} onRemoveNote={this.onRemoveNote}/>
         </section>
-      </section>
+      // </section>
     );
   }
 }
