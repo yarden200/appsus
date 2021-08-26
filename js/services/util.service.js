@@ -2,7 +2,7 @@ export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
-    getTime
+    getNameToShow
 }
 
 function makeId(length = 6) {
@@ -33,10 +33,8 @@ function getRandomIntInclusive(min, max) {
 }
 
 
-function getTime(date) {
-    console.log('in get time:', typeof date);
-  
-    let hours = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`
-    let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : `${date.getMinutes()}`
-    return  `${hours}:${minutes}` 
+function getNameToShow(emailAdr){
+    const idx=emailAdr.indexOf('@');
+    const nameToShow=emailAdr.slice(0,idx);
+    return nameToShow;
 }

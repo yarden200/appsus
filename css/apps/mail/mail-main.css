@@ -8,10 +8,29 @@
 }
 
 .email-list {
-    background-color: rgb(83, 81, 81);
+    background-color: rgb(250, 237, 125);
+}
+
+.email-list a {
+    text-decoration: none;
+    color: rgb(49, 49, 49);
+    font-weight: bolder;
+}
+
+.email-list .email-link>* {
+    border-top: 1px solid black;
+}
+
+.email-list .first-link {
+    border-top: none;
 }
 
 .email-preview {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+}
+
+.read {
+    color: rgb(128, 123, 123);
+    font-weight: unset;
 }
