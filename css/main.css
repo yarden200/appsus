@@ -1,2 +1,3 @@
-@import './apps/keep/note-preview.css';
-@import './apps/keep/note-list.css'
+@import './apps/keep/NotePreview.css';
+@import './apps/keep/NoteList.css';
+@import './apps/keep/KeepHeader.css';
