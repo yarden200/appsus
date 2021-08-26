@@ -21,7 +21,7 @@ export class NotePreview extends React.Component {
   render() {
     const { note, noteType, noteStyle } = this.state;
     if (!note) return <div>Loading...</div>;
-    const DynamicCmp = (props) => {
+    const DynamicNote = (props) => {
       switch (props.type) {
         case 'note-txt':
           return <NoteTxt  {...props} />;
@@ -34,7 +34,7 @@ export class NotePreview extends React.Component {
 
     return (
       <div>
-        <DynamicCmp
+        <DynamicNote
           type={noteType}
           note={note}
           onRemoveNote={this.props.onRemoveNote}
