@@ -1,7 +1,8 @@
 export const utilService = {
     makeId,
     makeLorem,
-    getRandomIntInclusive
+    getRandomIntInclusive,
+    getTime
 }
 
 function makeId(length = 6) {
@@ -29,4 +30,13 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+
+
+function getTime(date) {
+    console.log('in get time:', typeof date);
+  
+    let hours = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`
+    let minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : `${date.getMinutes()}`
+    return  `${hours}:${minutes}` 
 }

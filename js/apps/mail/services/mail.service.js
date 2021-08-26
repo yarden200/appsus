@@ -18,7 +18,6 @@ _createEmails()
 
 
 function query() {
-    console.log('in service gEmails:', gEmails);
     return Promise.resolve(gEmails)
 }
 
@@ -29,26 +28,37 @@ function _createEmails() {
         var emails = [
             _createEmail('First Mail', 'This is youre fisrt inbox mail', false, loggedinUser.email, 'Appsus@gmail.com'),
             _createEmail('Welcome', 'Welcome to Appsus!!!', false, loggedinUser.email, 'Appsus@gmail.com'),
-            _createEmail('KEEP', 'Keep your drafts at KEEP...', false, (loggedinUser.email), 'Appsus@gmail.com'),
+            _createEmail('KEEP', 'Keep your drafts at KEEP...', false, loggedinUser.email, 'Appsus@gmail.com'),
         ]
     }
-    console.log('_createEmails:', emails);
     gEmails = emails;
     _saveEmailsToStorage();
 }
 
-function _createEmail(subject, body, isSent, sender) {
+function _createEmail(subject, body, isSent, to, from) {
     return {
         id: utilService.makeId(),
         subject,
         body,
-        sentAt: Date.now(),
+        sentAt: new Date(),
+        timeToView: getTime(new Date()),
         isSent,
-        sender,
+        to,
+        from,
         isRead: false,
     }
 }
 
 function _saveEmailsToStorage() {
     storageService.saveToStorage(KEY, gEmails)
+}
+
+function getTime(date) {
+    console.log('in get time2222:', typeof date);
+    // var time = new Date()
+    // console.log(typeof time);
+    // let hours = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`
+    // let minutes = Date.getMinutes() < 10 ? `0${Date.getMinutes()}` : `${Date.getMinutes()}`
+    // return  `${hours}:${minutes}` 
+    // console.log('after:',hours);
 }
