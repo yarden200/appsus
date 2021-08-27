@@ -3,6 +3,8 @@ import { storageService } from '../../../services/storage.service.js';
 
 export const emailService = {
     query,
+    getEmailById,
+    deleteEmail,
 };
 
 const loggedinUser = {
@@ -15,12 +17,39 @@ const KEY = 'emails'
 var gEmails;
 
 _createEmails()
+// window.gEmails = gEmails
 
-
-function query() {
+function query(filterBy) {
+    console.log('(3) query gets:', filterBy);
+    if (filterBy) {
+        let { searchEmail } = filterBy
+        console.log('searchEmail: ',searchEmail);
+        const emailsToShow = gEmails.filter(email => {
+            console.log('email subject', email.subject)
+            console.log('email body', email.body); 
+            return ((email.subject.includes(searchEmail) || email.body.includes(searchEmail)))
+        })
+        console.log('query send:', emailsToShow);
+        return Promise.resolve(emailsToShow)
+    }
     return Promise.resolve(gEmails)
 }
 
+function getEmailById(emailId) {
+    var email = gEmails.find(function (email) {
+        return emailId === email.id
+    })
+    return Promise.resolve(email)
+}
+
+function deleteEmail(emailId) {
+    var emailIdx = gEmails.findIndex(function (email) {
+        return emailId === email.id
+    })
+    gEmails.splice(emailIdx, 1)
+    _saveEmailsToStorage();
+    return Promise.resolve()
+}
 
 function _createEmails() {
     var emails = storageService.loadFromStorage(KEY)
@@ -41,7 +70,6 @@ function _createEmail(subject, body, isSent, to, from) {
         subject,
         body,
         sentAt: new Date(),
-        timeToView: getTime(new Date()),
         isSent,
         to,
         from,
@@ -53,12 +81,3 @@ function _saveEmailsToStorage() {
     storageService.saveToStorage(KEY, gEmails)
 }
 
-function getTime(date) {
-    console.log('in get time2222:', typeof date);
-    // var time = new Date()
-    // console.log(typeof time);
-    // let hours = date.getHours() < 10 ? `0${date.getHours()}` : `${date.getHours()}`
-    // let minutes = Date.getMinutes() < 10 ? `0${Date.getMinutes()}` : `${Date.getMinutes()}`
-    // return  `${hours}:${minutes}` 
-    // console.log('after:',hours);
-}

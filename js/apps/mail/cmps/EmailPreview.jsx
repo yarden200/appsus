@@ -1,17 +1,19 @@
-// const { Link } = ReactRouterDOM
-import {utilService} from '../../../services/util.service.js'
+import { utilService } from '../../../services/util.service.js'
+const { Link } = ReactRouterDOM
 
-export function EmailPreview({ email }) {
-    console.log('email sentAT',email.sentAt);
-    console.log('in email preview:',utilService.getTime(email.sentAt))
+export function EmailPreview({ email, idx }) {
+    const { id, from, to, subject, sentAt, isSent, isRead } = email;
+    const nameToShow = isSent ? utilService.getNameToShow(to) : utilService.getNameToShow(from)
+
+
     return (
-        <div className="email-preview">
-            <h5>{email.from}</h5>
-            <p>{email.subject}</p>
-            <h5>{email.timeToView}</h5>
-        </div>
+        <Link className="email-link" to={`/mail/${id}`} >
+            <div className={`email-preview ${idx === 0 && 'first-link'} ${isRead && 'read'}`}>
+                <h5>{nameToShow}</h5>
+                <p>{subject}</p>
+                <h5>{`${new Date(sentAt).getHours()}:${new Date(sentAt).getMinutes()}`}</h5>
+            </div>
+        </Link>
     )
 }
 
-
- /* <Link to={`/car/${car.id}`} >Car details</Link> */
