@@ -1,9 +1,21 @@
 .app-header {
     height: 80px;
-    background-color: rgb(241, 237, 13);
+    background-color: #fff;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid black;
+  
+  }
+
+
+
+.app-header .logo {
+  padding-left: 30px;
+}
+
+.app-header :last-child {
+    padding-right: 50px;
   
   }

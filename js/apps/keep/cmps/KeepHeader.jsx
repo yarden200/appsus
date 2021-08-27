@@ -1,4 +1,4 @@
-import { eventBusService } from "../services/event-bus-service.js"
+import { eventBusService } from "../../../services/event-bus-service.js"
 
 // const { NavLink, withRouter } = ReactRouterDOM
 
@@ -26,7 +26,11 @@ export class KeepHeader extends React.Component {
 
     return (
       <section className="app-header">
-        
+     
+        <img className="header-logo" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"></img> 
+        <h2 className="header-title">Keep</h2> 
+    
+
         <p>You got total of  {this.state.notesCount} notes </p>
  
       </section>
