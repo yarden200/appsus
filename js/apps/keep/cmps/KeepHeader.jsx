@@ -28,7 +28,7 @@ export class KeepHeader extends React.Component {
       <section className="app-header">
      
         <img className="header-logo" src="https://www.gstatic.com/images/branding/product/1x/keep_48dp.png"></img> 
-        <h2 className="header-title">Keep</h2> 
+        <h2 className="header-title"></h2> 
     
 
         <p>You got total of  {this.state.notesCount} notes </p>

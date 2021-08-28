@@ -6,7 +6,7 @@ export const NoteTxt = ({ note, onDeleteNote }) => {
 
             <h4>{note.info.txt}</h4>
             <section className="edit-continer">
-            <span onClick={() => { onDeleteNote(note.id) }}>X</span>
+            <button onClick={() => { onDeleteNote(note.id) }}>X</button>
             </section>
         </article>
     )

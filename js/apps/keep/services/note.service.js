@@ -18,8 +18,45 @@ let gNotes = null;
 _loadNotes()
 
 
-function query() {
+function query(filter) {
+ 
+
+  if (!filter)
     return Promise.resolve(gNotes)
+  else{
+   
+    const {search, show} = filter
+    let filteredNotes = gNotes.filter((note) => {
+
+      switch (note.type){
+        case 'note-txt':
+         return note.info.txt.includes(search)
+        case 'note-img':
+          return note.info.title.includes(search)
+        case 'note-video':
+          return note.info.title.includes(search)
+        case 'note-todos':
+          return note.info.label.includes(search)
+      }
+    })
+    
+    let filteredNotesToShow = filteredNotes.filter((note) => {
+      switch (show){
+        case 'all':
+          return true
+          case 'txt':
+            return note.type === 'note-txt'
+            case 'img':
+            return note.type === 'note-img'
+            case 'video':
+            return note.type === 'note-video'
+            case 'todos':
+            return note.type === 'note-todos'
+      }
+    })
+    return Promise.resolve(filteredNotesToShow )
+  }
+   
 }
 
 function _createNotes() {
@@ -28,14 +65,14 @@ function _createNotes() {
             id: utilService.makeId(),
             type: "note-txt",
             isPinned: true,
-            info: { txt: utilService.makeLorem(75) },
+            info: { txt: 'Meeting Notes :Request feedback from Jenny. Talk about conference' },
             style: { backgroundColor: "#0F9D58" }
         },
         {
             id: utilService.makeId(),
             type: "note-txt",
             isPinned: true,
-            info: { txt: utilService.makeLorem(40) },
+            info: {txt: "Team Meeeting notes: -Try to start on time next time!    " },
             style: { backgroundColor: "#F4B400" }
         },
 
@@ -44,7 +81,7 @@ function _createNotes() {
             type: "note-img",
             info: {
                 url: "https://picsum.photos/200",
-                title: "Bobi and Me"
+                title: "Nice photo to kepp"
             },
             style: { backgroundColor: "#4285F4" }
         },
@@ -53,7 +90,7 @@ function _createNotes() {
             type: "note-video",
             isPinned: true,
             info: { src: "https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1",
-                    title: "video" },
+                    title: "love that song!" },
             style: { backgroundColor: "#DB4437" }
         },
         {

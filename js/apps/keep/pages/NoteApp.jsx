@@ -51,10 +51,11 @@ export class NoteApp extends React.Component {
         <section className="edit-contienr">
         <NoteFilter onFilter={this.onFilter}/>
             <AddNote onAdd={this.onAdd} />
+            </section>
         <section className="notes-contiener">
             <NoteList notes={notes} onDeleteNote={this.onDeleteNote} />
           </section>
-        </section>
+      
       </section>
     );
   }

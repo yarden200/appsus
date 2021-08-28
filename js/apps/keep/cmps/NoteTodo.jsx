@@ -7,7 +7,7 @@ export const NoteTodo = ({note, onDeleteNote }) => {
                 {note.info.todos.map(todo => <li key={todo.id}>{todo.txt}</li>)}
             </ul>
             <section className="edit-continer">
-            <span onClick={() => { onDeleteNote(note.id) }}>X</span>
+            <button onClick={() => { onDeleteNote(note.id) }}>X</button>
             </section>
         </article>
     )

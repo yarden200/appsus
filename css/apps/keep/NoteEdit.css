@@ -1,5 +1,14 @@
-.app-edit {
+.note-add{
   margin-bottom: 20px;
   margin-left: 50px;
 }
+
+.edit-contienr{
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  justify-content: center;
+}
+
   

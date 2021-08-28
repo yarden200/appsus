@@ -1,0 +1,12 @@
+.header-container {
+    background-color: #7EB5A6}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a {
+    margin-inline-end: 30px;
+}
+
